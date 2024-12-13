@@ -1,101 +1,789 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+    /* src/main/resources/static/css/styles.css */
+
+    /* 공통 폰트 설정 */
+    @font-face {
+      font-family: AppleSDGothicNeo;
+      src: url(/fonts/AppleSDGothicNeoM.ttf) format("truetype");
+      font-weight: bold;
+    }
+
+    /* 기본 스타일 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+      font-family: AppleSDGothicNeo;
+      color: inherit;
+    }
+
+    /* 전체 페이지 배경색 설정 */
+    body {
+      background-color: #101322;
+      color: #ffffff;
+      /* 텍스트 색상을 흰색으로 설정하여 가독성 향상 */
+      margin: 0;
+      /* 기본 마진 제거 */
+      padding: 0;
+      /* 기본 패딩 제거 */
+    }
+
+    /* .root 클래스의 스타일 수정 */
+    .root {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: #101322;
+      /* 필요 시 주석 해제 */
+      color: #ffffff;
+      /* 텍스트 색상 흰색 유지 */
+      border-radius: 8px;
+      /* 모서리 둥글게 */
+    }
+
+    /* 헤더 스타일 */
+    .header {
+      background-color: #101322;
+      border-bottom: 1px solid #dbe0e4;
+      max-width: 700px;
+      height: 50px;
+      position: sticky;
+      top: 0;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 1000;
+    }
+
+    @media screen and (max-width: 500px) {
+      .header {
+        display: none;
+      }
+    }
+
+    .header .header-logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .header .header-logo img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .header .header-util {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .header-util .route-nav {
+      margin-right: 16px;
+    }
+
+    .header .header-util .route-nav .route-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      text-align: center;
+      align-items: center;
+      color: #98a4b7;
+      font-size: 12px;
+    }
+
+    .header .header-util .route-nav .route-list .route-item:hover {
+      border-bottom: 2px solid #5383e8;
+      cursor: pointer;
+    }
+
+    .header .header-util .log-btn {
+      margin-right: 16px;
+      background-color: #5383e8;
+      color: #fff;
+      border-radius: 6px;
+      width: 40px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .log-btn p {
+      font-size: 12px;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+/*                               */
+
+
+
+
+    /* 게시글 본문 영역 */
+    .post_detail_main{
+       margin-bottom: 60px;
+    }
+
+    .post_main {
+      width: 700px;
+      /* border: 1px solid black; */
+      padding: 20px;
+      /* height: 1500px; */
+    }
+
+
+    .post_header {
+      display: flex;
+      height: 30px;
+      margin-bottom: 30px;
+      justify-content: space-between;
+
+    }
+
+    .post_mem_info {
+      /* border: 1px solid black; */
+      display: flex;
+      align-items: center;
+    }
+
+    .post_mem_profile {
+      border: 1px solid black;
+      border-radius: 25px;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      background-color: #3B4869;
+      color: #98A4B7;
+      margin-right: 10px;
+    }
+
+    .post_mem_nickname {
+      font-size: 14px;
+    }
+
+    .post_time {
+      /* border: 1px solid black; */
+      font-size: 14px;
+      line-height: 30px;
+      color: #586A85;
+    }
+
+    .post_time p {
+      display: inline;
+    }
+
+    .post_body{
+      /* border: 1px solid black; */
+    }
+
+    .post_title{
+      font-size: 18px;
+    }
+
+    .post_info_box{
+      /* border: 1px solid black; */
+      margin-top: 10px;
+      background-color: #172036;
+      border-radius: 10px;
+      padding: 13px;
+      color: #BDC6D5;
+    }
+
+    .post_tag{
+      display: flex;
+      margin-top: 5px;
+    }
+
+    .post_tag p{
+      /* border: 1px solid wheat; */
+      margin-right: 3px;
+      margin-left: 3px;
+      background-color: #637eea3a;
+      border-radius: 4px;
+      padding: 2px;
+      padding-left: 6px;
+      padding-right: 6px;
+      color: #637DEA;
+    }
+    
+    .view_info{
+      /* border: 1px solid white; */
+      display: flex;
+      height: 35px;
+      margin-top: 20px;
+    }
+
+    .view_cnt{
+      background-color: #637eea3a;
+      margin-right: 10px;
+      border-radius: 25px;
+      padding-right: 10px;
+      padding-left: 10px;
+      display: flex;
+      align-items: center;
+      height: 30px;
+    }
+
+    .view_cnt p{
+      color: #BDC6D5;
+      margin-left: 5px;
+      font-size: 14px;
+      
+    }
+
+    .view_cnt img{
+      width: 20px;
+    }
+
+    .like_cnt{
+      background-color: #637eea3a;
+      margin-right: 10px;
+      border-radius: 25px;
+      padding-right: 10px;
+      padding-left: 10px;
+      display: flex;
+      align-items: center;
+      height: 30px;
+    }
+
+    .like_cnt p{
+      color: #BDC6D5;
+      margin-left: 5px;
+      font-size: 14px;
+    }
+
+    .like_cnt img{
+      width: 18px;
+    }
+
+    .cut_line{
+      border: 1px solid #25304A;
+      width: 110%;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      position: relative;
+      right: 5%;
+    }
+
+
+    /* 댓글 영역 */
+    .comments{
+      /* border: 1px solid black; */
+      width: 700px;
+      padding: 20px;
+      margin-top: -10px;
+    }
+
+    .comment_header{
+      /* border: 1px solid black; */
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 20px;
+    }
+
+    .comment_cntbox{
+      font-size: 16px;
+    }
+
+    .comment_cntbox p span{
+      color: #637DEA;
+    }
+
+    .comment_refresh{
+      display: flex;
+      align-items: center;
+    }
+
+    .comment_refresh img{
+      width: 24px;
+    }
+
+    .comment_refresh p{
+      margin-left: 3px;
+      color: #98A4B7;
+      font-size: 14px;
+    }
+
+    .comment_one{
+      /* border: 1px solid black; */
+    }
+
+    .comment_one_header{
+      /* border: 1px solid black; */
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .comment_mem_info{
+      /* border: 1px solid black; */
+      display: flex;
+    }
+
+    .comment_profile{
+      /* border: 1px solid black; */
+      border-radius: 25px;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      background-color: #3B4869;
+      color: #98A4B7;
+      margin-right: 10px;
+    }
+
+    .comment_nickname{
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .comment_time{
+      color: #586A85;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .comment_one_body{
+      /* border: 1px solid black; */
+    }
+
+    .comment_item{
+      /* border: 1px solid white; */
+    }
+
+    .comment_item p{
+      color: #98A4B7;
+    }
+
+    .comment_one_footer{
+      /* border: 1px solid palegoldenrod; */
+      display: flex;
+      margin-top: 10px;
+    }
+
+    .comment_like{
+      /* border: 1px solid red; */
+      display: flex;
+      margin-right: 5px;
+      background-color: #25304A;
+      padding: 4px;
+      height: 26px;
+      border-radius: 14px;
+    }
+
+    .comment_like img{
+      width: 18px;
+      margin-left: 4px;
+      margin-right: 10px;
+    }
+
+    .comment_like p{
+      font-size: 16px;
+      margin-right: 4px;
+      display: flex;
+      color: #586A85;
+    }
+
+    .comment_recomment{
+      display: flex;
+      align-items: end;
+    }
+
+    .comment_recomment p{
+      color: #586A85;
+    }
+
+
+    .comment_register{
+      background-color: #25304A;
+      width: 700px;
+      padding: 20px;
+    }
+
+    .comment_p{
+      /* border: 1px solid blue; */
+      margin-bottom: 16px;
+    }
+
+    .comment_p p{
+      color: #98A4B7;
+    }
+
+    .comment_input_box{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .comment_input{
+      width: 700px;
+      height: 140px;
+      padding: 10px;
+      background-color: #D9D9D9;
+      border: none;
+      margin-bottom: 10px;
+      color: black;
+      font-size: 14px;
+    }
+
+    .comment_input_footer{
+      display: flex;
+      justify-content: end;
+    }
+
+    .comment_register_btn{
+      /* border: 1px solid black; */
+      width: 80px;
+      font-size: 16px;
+      padding: 6px;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #3B4869;
+      color: #98A4B7;
+    }
+
+    .comment_register_btn:hover{
+      background-color: #172036;
+    }
+
+    .return{
+      /* border: 1px solid white; */
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .return_btn{
+      border: 2px solid #25304A;
+      background-color: #101322;
+      text-align: center;
+      padding: 15px;
+      width: 356px;
+      border-radius: 25px;
+    }
+
+    .return_btn:hover{
+      background-color: #25304A;
+    }
+
+    .return_btn p{
+      font-size: 16px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* 푸터 영역  */
+    /* 푸터 스타일 */
+    footer {
+      background-color: #101322;
+      width: 100%;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 9999;
+      box-shadow: 0 -4px 16px rgba(16, 16, 16, 0.48);
+    }
+
+    footer nav {
+      display: flex;
+      max-width: 700px;
+      justify-content: center;
+      align-items: center;
+      height: 56px;
+      margin: 0 auto;
+    }
+
+    @media screen and (max-width:500px) {
+      footer nav {
+        max-width: 500px;
+      }
+    }
+
+    footer nav .route-item {
+      display: flex;
+      flex-direction: column;
+      width: 140px;
+      height: 56px;
+      padding: 8px 0;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+    }
+
+    footer nav .route-item .route-img {
+      width: 24px;
+      max-height: 24px;
+    }
+
+    footer nav .route-item .route-name {
+      color: #98a4b7;
+      font-size: 12px;
+    }
+
+
+    .error {
+      color: red;
+      margin-left: 150px;
+    }
+
+    .success {
+      color: green;
+      margin-left: 150px;
+    }
+  </style>
+
 </head>
+
 <body>
-Hi!
-<div class="head">
 
-</div>
+  <!-- src/main/resources/templates/fragments/header.html -->
+  <div th:fragment="headerFragment" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="header">
+      <div class="header-logo">
+        <img alt="시네링크 로고" th:src="@{/img/cine_link_logo.svg}" />
+      </div>
+      <div class="header-util">
+        <div class="route-nav">
+          <ul class="route-list">
+            <li class="route-item"><a href="#">랭킹</a></li>
+            <li class="route-item"><a href="#">통계</a></li>
+            <li class="route-item"><a href="#">커뮤니티</a></li>
+            <li class="route-item"><a href="#">작품</a></li>
+            <li class="route-item">
+              <img alt="검색 아이콘" th:src="@{/img/search.svg}" />
+            </li>
+            <li class="route-item">
+              <img alt="벨 아이콘" th:src="@{/img/bell.svg}" />
+            </li>
+          </ul>
+        </div>
+        <!-- header.html의 .log-btn 부분 -->
+        <div class="log-btn">
+          <!-- 인증된 사용자에게만 '로그아웃' -->
+          <p sec:authorize="isAuthenticated()">로그아웃</p>
+          <!-- 익명 사용자에게만 '로그인' -->
+          <p sec:authorize="isAnonymous()">로그인</p>
+        </div>
 
-<section class="post_header">
-  <div >
-    <div class="posting_user">
+      </div>
+    </div>
+
+
+
+
+    <div class="post_detail_main">
+
+      <section class="post_main">
+
+        <div class="post_header">
+          <div class="post_mem_info">
+
+            <div class="post_mem_profile">
+              <p>박</p>
+            </div>
+            <div class="post_mem_nickname">
+              <p>깜찍한_박보검_993297</p>
+            </div>
+          </div>
+
+          <div class="post_time">
+            <p>3시간 전</p>
+          </div>
+        </div>
+
+        <div class="post_body">
+          <div class="post_title">
+            <p>드라마 시사회</p>
+          </div>
+
+          <div class="post_info_box">
+            <div class="post_info">
+              <p>
+                드라마 시사회에서 배우님들이 싸인해주시나요??<br>
+                이번에 옥씨부인전 시사회 가는데 싸인이나 어쩌구 어쩌구...
+              </p>
+            </div>
+  
+            <div class="post_tag_box">
+              <div class="post_tag">
+                <p>#어쩌구</p>
+                <p>#저쩌구</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="view_info">
+          <div class="view_cnt">
+            <img th:src="@{/img/Vector.svg}" alt="조회수아이콘">
+            <p>232</p>
+          </div>
+          <div class="like_cnt">
+            <img th:src="@{/img/twemoji_growing-heart.svg}" alt="좋아요아이콘콘">
+            <p>11</p>
+          </div>
+        </div>
+      <div class="cut_line"></div>
+      </section>
+
+
+      <section class="comments">
+        <div class="comment_header">
+          <div class="comment_cntbox">
+            <p>댓글 <span class="comment_cnt">41</span></p>
+          </div>
+          <div class="comment_refresh">
+            <img th:src="@{/img/btn-reset.svg}" alt="새로고침아이콘">
+            <p>새로고침</p>
+          </div>
+        </div>
+
+        <div class="comment_main">
+
+          <div class="comment_one">
+
+            <div class="comment_one_header">
+
+              <div class="comment_mem_info">
+                <div class="comment_profile">
+                  <p>김</p>
+                </div>
+                <div class="comment_nickname">
+                  <p>화가난_김태희_149314</p>
+                </div>
+              </div>
+                
+              <div class="comment_time">
+                <p>6시간 전</p>
+              </div>
+            </div>
+
+            <div class="comment_one_body">
+              <div class="comment_item">
+                <p>그건 운빨입니다. 거의 불가능이에요.. 대부분 인사만 하고 지나가세요!!</p>
+              </div>
+            </div>
+
+            <div class="comment_one_footer">
+              <div class="comment_like">
+                <img th:src="@{img/twemoji_growing-heart.svg}" alt="댓글좋아요">
+                <p>0</p>
+              </div>
+              <div class="comment_recomment">
+                <p>대댓글</p>
+              </div>
+            </div>
+            <div class="cut_line"></div>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="comment_register">
+        <div class="comment_p">
+          <p>댓글을 작성해주세요.</p>
+        </div>
+        <div class="comment_input_box">
+          <input class="comment_input">
+        </div>
+        <div class="comment_input_footer">
+          <div class="comment_register_btn">
+            등록
+          </div>
+        </div>
+      </section>
+
+      <div class="return">
+        <div class="return_btn">
+          <p>게시글 전체목록으로 돌아가기</p>
+        </div>
+
+      </div>
+
 
     </div>
-    <div class="post_time">
 
-    </div>
+
+
+
+    <footer>
+      <nav class="footer-util">
+        <a class="route-item" href="#">
+          <div class="route-img">
+            <img alt="홈 아이콘" th:src="@{/img/home.svg}" />
+          </div>
+          <div class="route-name">홈</div>
+        </a>
+        <a class="route-item" href="#">
+          <div class="route-img">
+            <img alt="발견 아이콘" th:src="@{/img/search.svg}" />
+          </div>
+          <div class="route-name">발견</div>
+        </a>
+        <a class="route-item" href="#">
+          <div class="route-img">
+            <img alt="콘텐츠 아이콘" th:src="@{/img/list.svg}" />
+          </div>
+          <div class="route-name">콘텐츠</div>
+        </a>
+        <a class="route-item" href="#">
+          <div class="route-img">
+            <img alt="숏폼 아이콘" th:src="@{/img/shortform.svg}" />
+          </div>
+          <div class="route-name">숏폼</div>
+        </a>
+        <a class="route-item" href="#">
+          <div class="route-img">
+            <img alt="커뮤니티 아이콘" th:src="@{/img/community.svg}" />
+          </div>
+          <div class="route-name">커뮤니티</div>
+        </a>
+        <a class="route-item" href="#">
+          <div class="route-img">
+            <img alt="마이페이지 아이콘" th:src="@{/img/mypage.svg}" />
+          </div>
+          <div class="route-name">마이페이지</div>
+        </a>
+        <a class="route-item" href="#">
+          <div class="route-img">
+            <img alt="알림 아이콘" th:src="@{/img/bell.svg}" />
+          </div>
+          <div class="route-name">알림</div>
+        </a>
+      </nav>
+    </footer>
   </div>
-
-  <div class="post_main">
-    <div class="post_title">
-
-    </div>
-
-    <div class="post_info">
-
-    </div>
-
-    <div class="post_tag">
-
-    </div>
-  </div>
-
-
-  <div class="view_info">
-    <div class="view_cnt">
-
-    </div>
-    <div class="comment_cnt">
-
-    </div>
-    <div class="like_cnt">
-
-    </div>
-    <div class="report">
-
-    </div>
-  </div>
-
-</section>
-
-<section class="comments">
-  <div class="comment_header">
-    <div class="comment_cnt">
-
-    </div>
-    <div class="comment_refresh">
-
-    </div>
-  </div>
-
-  <div class="comment_main">
-    <div class="comment_profile">
-
-    </div>
-    <div class="comment_aside">
-
-    </div>
-    <div class="comment_info">
-
-    </div>
-    <div class="comment_footer">
-
-    </div>
-
-  </div>
-</section>
-
-<section class="comment_register">
-  <div class="comment_input">
-
-  </div>
-  <div class="comment_input_footer">
-    <div class="comment_register_btn">
-
-    </div>
-  </div>
-</section>
-
-<div class="return">
-  <div class="return_btn">
-
-  </div>
-
-</div>
 
 </body>
+
 </html>
