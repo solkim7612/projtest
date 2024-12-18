@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class PostDetailController {
+public class PostRegister {
 
-    @GetMapping("/PostDetail")
-    public String PostDetail(){
-        return "PostDetail";
+    @GetMapping("/postRegister")
+    public String PostRegister1(){
+        return "postRegister";
     }
 }
