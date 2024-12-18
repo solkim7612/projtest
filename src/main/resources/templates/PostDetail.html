@@ -5,8 +5,6 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
-    /* src/main/resources/static/css/styles.css */
-
     /* 공통 폰트 설정 */
     @font-face {
       font-family: AppleSDGothicNeo;
@@ -29,23 +27,16 @@
     body {
       background-color: #101322;
       color: #ffffff;
-      /* 텍스트 색상을 흰색으로 설정하여 가독성 향상 */
       margin: 0;
-      /* 기본 마진 제거 */
       padding: 0;
-      /* 기본 패딩 제거 */
     }
 
-    /* .root 클래스의 스타일 수정 */
     .root {
       max-width: 700px;
       margin: 0 auto;
       background-color: #101322;
-      /* 필요 시 주석 해제 */
       color: #ffffff;
-      /* 텍스트 색상 흰색 유지 */
       border-radius: 8px;
-      /* 모서리 둥글게 */
     }
 
     /* 헤더 스타일 */
@@ -126,34 +117,33 @@
       justify-content: center;
     }
 
-/*                               */
-
-
-
 
     /* 게시글 본문 영역 */
+    /* 게시글 본문 영역 */
+
+    @media screen and (max-width: 500px) {
+      .post_detail_main {
+        display: none;
+      }
+    }
+
     .post_detail_main{
        margin-bottom: 60px;
     }
 
     .post_main {
       width: 700px;
-      /* border: 1px solid black; */
       padding: 20px;
-      /* height: 1500px; */
     }
-
 
     .post_header {
       display: flex;
       height: 30px;
       margin-bottom: 30px;
       justify-content: space-between;
-
     }
 
     .post_mem_info {
-      /* border: 1px solid black; */
       display: flex;
       align-items: center;
     }
@@ -177,7 +167,6 @@
     }
 
     .post_time {
-      /* border: 1px solid black; */
       font-size: 14px;
       line-height: 30px;
       color: #586A85;
@@ -187,16 +176,11 @@
       display: inline;
     }
 
-    .post_body{
-      /* border: 1px solid black; */
-    }
-
     .post_title{
       font-size: 18px;
     }
 
     .post_info_box{
-      /* border: 1px solid black; */
       margin-top: 10px;
       background-color: #172036;
       border-radius: 10px;
@@ -210,7 +194,6 @@
     }
 
     .post_tag p{
-      /* border: 1px solid wheat; */
       margin-right: 3px;
       margin-left: 3px;
       background-color: #637eea3a;
@@ -220,9 +203,8 @@
       padding-right: 6px;
       color: #637DEA;
     }
-    
+
     .view_info{
-      /* border: 1px solid white; */
       display: flex;
       height: 35px;
       margin-top: 20px;
@@ -243,7 +225,7 @@
       color: #BDC6D5;
       margin-left: 5px;
       font-size: 14px;
-      
+
     }
 
     .view_cnt img{
@@ -259,6 +241,11 @@
       display: flex;
       align-items: center;
       height: 30px;
+    }
+
+    .like_cnt:hover{
+      cursor: pointer;
+      background-color: #637eea17;
     }
 
     .like_cnt p{
@@ -282,15 +269,15 @@
 
 
     /* 댓글 영역 */
+    /* 댓글 영역 */
+
     .comments{
-      /* border: 1px solid black; */
       width: 700px;
       padding: 20px;
       margin-top: -10px;
     }
 
     .comment_header{
-      /* border: 1px solid black; */
       display: flex;
       justify-content: space-between;
       padding-bottom: 20px;
@@ -313,30 +300,27 @@
       width: 24px;
     }
 
+    .comment_refresh img:hover, .comment_refresh p:hover{
+      cursor: pointer;
+    }
+
     .comment_refresh p{
       margin-left: 3px;
       color: #98A4B7;
       font-size: 14px;
     }
 
-    .comment_one{
-      /* border: 1px solid black; */
-    }
-
     .comment_one_header{
-      /* border: 1px solid black; */
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
     }
 
     .comment_mem_info{
-      /* border: 1px solid black; */
       display: flex;
     }
 
     .comment_profile{
-      /* border: 1px solid black; */
       border-radius: 25px;
       width: 25px;
       height: 25px;
@@ -362,32 +346,33 @@
       align-items: center;
     }
 
-    .comment_one_body{
-      /* border: 1px solid black; */
-    }
-
-    .comment_item{
-      /* border: 1px solid white; */
-    }
-
     .comment_item p{
       color: #98A4B7;
     }
 
-    .comment_one_footer{
-      /* border: 1px solid palegoldenrod; */
+    .comment_one_footer_box{
       display: flex;
+      align-items: center;
+    }
+
+    .comment_one_footer{
+      display: inline;
       margin-top: 10px;
     }
 
     .comment_like{
-      /* border: 1px solid red; */
       display: flex;
       margin-right: 5px;
       background-color: #25304A;
       padding: 4px;
       height: 26px;
       border-radius: 14px;
+      width: max-content;
+    }
+
+    .comment_like:hover{
+      cursor: pointer;
+      background-color: #637eea17;
     }
 
     .comment_like img{
@@ -403,14 +388,173 @@
       color: #586A85;
     }
 
-    .comment_recomment{
-      display: flex;
-      align-items: end;
+    .L{
+      border: 2px solid #586A85;
+      width: 10px;
+      height: 10px;
+      border-right: none;
+      border-top: none;
+      margin-top: 6px;
+      margin-right: 10px;
     }
 
-    .comment_recomment p{
+    .recomment_one{
+      display: flex;
+    }
+
+    .recomment_one_header{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      width: 640px;
+    }
+
+    .recomment_mem_info{
+      display: flex;
+    }
+
+    .recomment_profile{
+      border-radius: 25px;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      background-color: #3B4869;
+      color: #98A4B7;
+      margin-right: 10px;
+    }
+
+    .recomment_nickname{
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .recomment_time{
+      color: #586A85;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .recomment_item p{
+      color: #98A4B7;
+    }
+
+    .recomment_one_footer{
+      display: flex;
+      margin-top: 10px;
+    }
+
+    .recomment_like{
+      display: flex;
+      margin-right: 5px;
+      background-color: #25304A;
+      padding: 4px;
+      height: 26px;
+      border-radius: 14px;
+    }
+
+    .recomment_like:hover{
+      cursor: pointer;
+      background-color: #637eea17;
+    }
+
+    .recomment_like img{
+      width: 18px;
+      margin-left: 4px;
+      margin-right: 10px;
+    }
+
+    .recomment_like p{
+      font-size: 16px;
+      margin-right: 4px;
+      display: flex;
       color: #586A85;
     }
+
+    .comment_recomment{
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      margin-left: 8px;
+      align-items: start;
+      position: relative;
+      top: 5px;
+    }
+
+    .recomment_toggle:hover{
+      cursor: pointer;
+    }
+
+    .recomment_toggle{
+      color: #586A85;
+    }
+
+    .comment_recomment_box{
+      display: block;
+      height: 0;
+      opacity: 0;
+      overflow: 0;
+      transition: height 0.3s ease, opacity 0.3s ease;
+    }
+
+    .comment_recomment_box.active{
+      width: 600px;
+      height: 140px;
+      display: inline;
+      margin-top: 10px;
+      opacity: 1;
+    }
+
+    .comment_recomment_text{
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .comment_recomment_text p{
+      color: #98A4B7;
+      font-size: 12px;
+    }
+
+    .comment_recommnet_register_box{
+      display: flex;
+      align-items: end;
+      justify-content: start;
+    }
+
+    .comment_recomment_register{
+      width: 500px;
+      height: 110px;
+      background-color: #6b6e7746;
+      border: none;
+      border-radius: 2px;
+      resize: none;
+      outline-style: none;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .comment_recomment_registerBtn{
+      width: 50px;
+      height: 30px;
+      background-color: #3B4869;
+      color: #98A4B7;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      font-size: 14px;
+    }
+
+    .comment_recomment_registerBtn:hover{
+      background-color: #172036;
+      cursor: pointer;
+    }
+
+
+
 
 
     .comment_register{
@@ -420,7 +564,6 @@
     }
 
     .comment_p{
-      /* border: 1px solid blue; */
       margin-bottom: 16px;
     }
 
@@ -443,6 +586,8 @@
       margin-bottom: 10px;
       color: black;
       font-size: 14px;
+      resize: none;
+      outline-style: none;
     }
 
     .comment_input_footer{
@@ -451,7 +596,6 @@
     }
 
     .comment_register_btn{
-      /* border: 1px solid black; */
       width: 80px;
       font-size: 16px;
       padding: 6px;
@@ -459,14 +603,15 @@
       border-radius: 10px;
       background-color: #3B4869;
       color: #98A4B7;
+      border: none;
     }
 
     .comment_register_btn:hover{
       background-color: #172036;
+      cursor: pointer;
     }
 
     .return{
-      /* border: 1px solid white; */
       margin-top: 20px;
       display: flex;
       justify-content: center;
@@ -483,6 +628,7 @@
 
     .return_btn:hover{
       background-color: #25304A;
+      cursor: pointer;
     }
 
     .return_btn p{
@@ -490,19 +636,9 @@
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
     /* 푸터 영역  */
     /* 푸터 스타일 */
+
     footer {
       background-color: #101322;
       width: 100%;
@@ -549,7 +685,6 @@
       font-size: 12px;
     }
 
-
     .error {
       color: red;
       margin-left: 150px;
@@ -565,221 +700,298 @@
 
 <body>
 
-  <!-- src/main/resources/templates/fragments/header.html -->
-  <div th:fragment="headerFragment" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
-    <div class="header">
-      <div class="header-logo">
-        <img alt="시네링크 로고" th:src="@{/img/cine_link_logo.svg}" />
-      </div>
-      <div class="header-util">
-        <div class="route-nav">
-          <ul class="route-list">
-            <li class="route-item"><a href="#">랭킹</a></li>
-            <li class="route-item"><a href="#">통계</a></li>
-            <li class="route-item"><a href="#">커뮤니티</a></li>
-            <li class="route-item"><a href="#">작품</a></li>
-            <li class="route-item">
-              <img alt="검색 아이콘" th:src="@{/img/search.svg}" />
-            </li>
-            <li class="route-item">
-              <img alt="벨 아이콘" th:src="@{/img/bell.svg}" />
-            </li>
-          </ul>
-        </div>
-        <!-- header.html의 .log-btn 부분 -->
-        <div class="log-btn">
-          <!-- 인증된 사용자에게만 '로그아웃' -->
-          <p sec:authorize="isAuthenticated()">로그아웃</p>
-          <!-- 익명 사용자에게만 '로그인' -->
-          <p sec:authorize="isAnonymous()">로그인</p>
-        </div>
-
-      </div>
+<!-- src/main/resources/templates/fragments/header.html -->
+<div th:fragment="headerFragment" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+  <div class="header">
+    <div class="header-logo">
+      <img alt="시네링크 로고" th:src="@{/img/cine_link_logo.svg}" />
     </div>
+    <div class="header-util">
+      <div class="route-nav">
+        <ul class="route-list">
+          <li class="route-item"><a href="#">랭킹</a></li>
+          <li class="route-item"><a href="#">통계</a></li>
+          <li class="route-item"><a href="#">커뮤니티</a></li>
+          <li class="route-item"><a href="#">작품</a></li>
+          <li class="route-item">
+            <img alt="검색 아이콘" th:src="@{/img/search.svg}" />
+          </li>
+          <li class="route-item">
+            <img alt="벨 아이콘" th:src="@{/img/bell.svg}" />
+          </li>
+        </ul>
+      </div>
+      <!-- header.html의 .log-btn 부분 -->
+      <div class="log-btn">
+        <!-- 인증된 사용자에게만 '로그아웃' -->
+        <p sec:authorize="isAuthenticated()">로그아웃</p>
+        <!-- 익명 사용자에게만 '로그인' -->
+        <p sec:authorize="isAnonymous()">로그인</p>
+      </div>
+
+    </div>
+  </div>
 
 
 
 
-    <div class="post_detail_main">
+  <div class="post_detail_main">
+    <section class="post_main">
+      <div class="post_header">
+        <div class="post_mem_info">
 
-      <section class="post_main">
-
-        <div class="post_header">
-          <div class="post_mem_info">
-
-            <div class="post_mem_profile">
-              <p>박</p>
-            </div>
-            <div class="post_mem_nickname">
-              <p>깜찍한_박보검_993297</p>
-            </div>
+          <div class="post_mem_profile">
+            <!-- 사용자 프로필 -->
+            <p>박</p>
           </div>
-
-          <div class="post_time">
-            <p>3시간 전</p>
-          </div>
-        </div>
-
-        <div class="post_body">
-          <div class="post_title">
-            <p>드라마 시사회</p>
-          </div>
-
-          <div class="post_info_box">
-            <div class="post_info">
-              <p>
-                드라마 시사회에서 배우님들이 싸인해주시나요??<br>
-                이번에 옥씨부인전 시사회 가는데 싸인이나 어쩌구 어쩌구...
-              </p>
-            </div>
-  
-            <div class="post_tag_box">
-              <div class="post_tag">
-                <p>#어쩌구</p>
-                <p>#저쩌구</p>
-              </div>
-            </div>
+          <div class="post_mem_nickname">
+            <!-- 사용자 닉네임 -->
+            <p>깜찍한_박보검_993297</p>
           </div>
         </div>
 
+        <div class="post_time">
+          <!-- 게시글 등록 시간간 -->
+          <p>3시간 전</p>
+        </div>
+      </div>
 
-        <div class="view_info">
-          <div class="view_cnt">
-            <img th:src="@{/img/Vector.svg}" alt="조회수아이콘">
-            <p>232</p>
+      <div class="post_body">
+        <div class="post_title">
+          <!-- 게시글 제목목 -->
+          <p>드라마 시사회</p>
+        </div>
+
+        <div class="post_info_box">
+          <div class="post_info">
+            <!-- 게시글 내용용 -->
+            <p>
+              드라마 시사회에서 배우님들이 싸인해주시나요??<br>
+              이번에 옥씨부인전 시사회 가는데 싸인이나 어쩌구 어쩌구...
+            </p>
           </div>
-          <div class="like_cnt">
-            <img th:src="@{/img/twemoji_growing-heart.svg}" alt="좋아요아이콘콘">
-            <p>11</p>
+
+          <div class="post_tag_box">
+            <div class="post_tag">
+              <!-- 게시글 태그 -->
+              <p>#어쩌구</p>
+              <p>#저쩌구</p>
+            </div>
           </div>
         </div>
+      </div>
+
+
+      <div class="view_info">
+        <div class="view_cnt">
+          <img th:src="@{/img/Vector.svg}" alt="조회수아이콘">
+          <!-- 게시글 조회수 -->
+          <p>232</p>
+        </div>
+        <div class="like_cnt">
+          <img th:src="@{/img/empty-heart.svg}" alt="좋아요아이콘">
+          <!-- <img th:src="@{img/full-heart.svg}" alt="좋아요아이콘"> -->
+          <!-- 게시글 추천수 -->
+          <p>11</p>
+        </div>
+      </div>
       <div class="cut_line"></div>
-      </section>
+    </section>
 
 
 
-      <section class="comments">
-        <div class="comment_header">
-          <div class="comment_cntbox">
-            <p>댓글 <span class="comment_cnt">41</span></p>
-          </div>
-          <div class="comment_refresh">
-            <img th:src="@{/img/btn-reset.svg}" alt="새로고침아이콘">
-            <p>새로고침</p>
-          </div>
+    <section class="comments">
+      <div class="comment_header">
+        <div class="comment_cntbox">
+          <!-- 댓글 개수 -->
+          <p>댓글 <span class="comment_cnt">41</span></p>
         </div>
+        <div class="comment_refresh">
+          <img th:src="@{/img/btn-reset.svg}" alt="새로고침아이콘">
+          <p>새로고침</p>
+        </div>
+      </div>
 
-        <div class="comment_main">
+      <div class="comment_main">
 
-          <div class="comment_one">
+        <div class="comment_one">
 
-            <div class="comment_one_header">
+          <div class="comment_one_header">
 
-              <div class="comment_mem_info">
-                <div class="comment_profile">
-                  <p>김</p>
-                </div>
-                <div class="comment_nickname">
-                  <p>화가난_김태희_149314</p>
-                </div>
+            <div class="comment_mem_info">
+              <div class="comment_profile">
+                <!-- 댓글작성자 프로필 -->
+                <p>김</p>
               </div>
-                
-              <div class="comment_time">
-                <p>6시간 전</p>
-              </div>
-            </div>
-
-            <div class="comment_one_body">
-              <div class="comment_item">
-                <p>그건 운빨입니다. 거의 불가능이에요.. 대부분 인사만 하고 지나가세요!!</p>
+              <div class="comment_nickname">
+                <!-- 댓글작성자 닉네임 -->
+                <p>화가난_김태희_149314</p>
               </div>
             </div>
 
+            <div class="comment_time">
+              <!-- 댓글 등록 시간 -->
+              <p>6시간 전</p>
+            </div>
+          </div>
+
+          <div class="comment_one_body">
+            <div class="comment_item">
+              <!-- 댓글 내용 -->
+              <p>그건 운빨입니다. 거의 불가능이에요.. 대부분 인사만 하고 지나가세요!!</p>
+            </div>
+          </div>
+
+          <div class="comment_one_footer_box">
             <div class="comment_one_footer">
               <div class="comment_like">
-                <img th:src="@{img/twemoji_growing-heart.svg}" alt="댓글좋아요">
+                <img th:src="@{img/empty-heart.svg}" alt="댓글좋아요">
+                <!-- <img th:src="@{img/full-heart.svg}" alt="댓글좋아요"> -->
+                <!-- 댓글 좋아요 개수 -->
                 <p>0</p>
               </div>
-              <div class="comment_recomment">
-                <p>대댓글</p>
+            </div>
+
+            <div class="comment_recomment">
+              <p class="recomment_toggle">대댓글</p>
+              <div class="comment_recomment_box">
+                <div class="comment_recomment_text">
+                  <p>대댓글을 작성해주세요.</p>
+                </div>
+                <div class="comment_recommnet_register_box">
+                  <textarea class="comment_recomment_register" spellcheck="false"></textarea>
+                  <button class="comment_recomment_registerBtn">등록</button>
+                </div>
               </div>
             </div>
-            <div class="cut_line"></div>
           </div>
-          
-        </div>
-      </section>
 
-      <section class="comment_register">
-        <div class="comment_p">
-          <p>댓글을 작성해주세요.</p>
-        </div>
-        <div class="comment_input_box">
-          <input class="comment_input">
-        </div>
-        <div class="comment_input_footer">
-          <div class="comment_register_btn">
-            등록
+          <div class="cut_line"></div>
+
+
+          <!-- 대댓글 영역 -->
+          <div class="recomment_one">
+            <div class="L"></div>
+            <div>
+              <div class="recomment_one_header">
+                <div class="recomment_mem_info">
+                  <div class="recomment_profile">
+                    <!-- 대대댓글작성자 프로필 -->
+                    <p>김</p>
+                  </div>
+                  <div class="recomment_nickname">
+                    <!-- 대대댓글작성자 닉네임 -->
+                    <p>화가난_김태희_149314</p>
+                  </div>
+                </div>
+
+                <div class="recomment_time">
+                  <!-- 대대댓글 등록 시간 -->
+                  <p>6시간 전</p>
+                </div>
+              </div>
+
+              <div class="recomment_one_body">
+                <div class="recomment_item">
+                  <!-- 대대댓글 내용 -->
+                  <p>그건 운빨입니다. 거의 불가능이에요.. 대부분 인사만 하고 지나가세요!!</p>
+                </div>
+              </div>
+
+              <div class="recomment_one_footer">
+                <div class="recomment_like">
+                  <img th:src="@{img/empty-heart.svg}" alt="댓글좋아요">
+                  <!-- <img th:src="@{img/full-heart.svg}" alt="댓글좋아요"> -->
+                  <!-- 대댓글 좋아요 개수 -->
+                  <p>0</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+          <div class="cut_line"></div>
 
-      <div class="return">
-        <div class="return_btn">
-          <p>게시글 전체목록으로 돌아가기</p>
+
         </div>
       </div>
+    </section>
+
+    <section class="comment_register">
+      <div class="comment_p">
+        <p>댓글을 작성해주세요.</p>
+      </div>
+      <div class="comment_input_box">
+        <textarea class="comment_input" spellcheck="false"></textarea>
+      </div>
+      <div class="comment_input_footer">
+        <button class="comment_register_btn">
+          등록
+        </button>
+      </div>
+    </section>
+
+    <div class="return">
+      <div class="return_btnbox">
+        <button class="return_btn">게시글 전체목록으로 돌아가기</button>
+      </div>
     </div>
-
-    
-
-    <footer>
-      <nav class="footer-util">
-        <a class="route-item" href="#">
-          <div class="route-img">
-            <img alt="홈 아이콘" th:src="@{/img/home.svg}" />
-          </div>
-          <div class="route-name">홈</div>
-        </a>
-        <a class="route-item" href="#">
-          <div class="route-img">
-            <img alt="발견 아이콘" th:src="@{/img/search.svg}" />
-          </div>
-          <div class="route-name">발견</div>
-        </a>
-        <a class="route-item" href="#">
-          <div class="route-img">
-            <img alt="콘텐츠 아이콘" th:src="@{/img/list.svg}" />
-          </div>
-          <div class="route-name">콘텐츠</div>
-        </a>
-        <a class="route-item" href="#">
-          <div class="route-img">
-            <img alt="숏폼 아이콘" th:src="@{/img/shortform.svg}" />
-          </div>
-          <div class="route-name">숏폼</div>
-        </a>
-        <a class="route-item" href="#">
-          <div class="route-img">
-            <img alt="커뮤니티 아이콘" th:src="@{/img/community.svg}" />
-          </div>
-          <div class="route-name">커뮤니티</div>
-        </a>
-        <a class="route-item" href="#">
-          <div class="route-img">
-            <img alt="마이페이지 아이콘" th:src="@{/img/mypage.svg}" />
-          </div>
-          <div class="route-name">마이페이지</div>
-        </a>
-        <a class="route-item" href="#">
-          <div class="route-img">
-            <img alt="알림 아이콘" th:src="@{/img/bell.svg}" />
-          </div>
-          <div class="route-name">알림</div>
-        </a>
-      </nav>
-    </footer>
   </div>
+
+
+
+  <footer>
+    <nav class="footer-util">
+      <a class="route-item" href="#">
+        <div class="route-img">
+          <img alt="홈 아이콘" th:src="@{/img/home.svg}" />
+        </div>
+        <div class="route-name">홈</div>
+      </a>
+      <a class="route-item" href="#">
+        <div class="route-img">
+          <img alt="발견 아이콘" th:src="@{/img/search.svg}" />
+        </div>
+        <div class="route-name">발견</div>
+      </a>
+      <a class="route-item" href="#">
+        <div class="route-img">
+          <img alt="콘텐츠 아이콘" th:src="@{/img/list.svg}" />
+        </div>
+        <div class="route-name">콘텐츠</div>
+      </a>
+      <a class="route-item" href="#">
+        <div class="route-img">
+          <img alt="숏폼 아이콘" th:src="@{/img/shortform.svg}" />
+        </div>
+        <div class="route-name">숏폼</div>
+      </a>
+      <a class="route-item" href="#">
+        <div class="route-img">
+          <img alt="커뮤니티 아이콘" th:src="@{/img/community.svg}" />
+        </div>
+        <div class="route-name">커뮤니티</div>
+      </a>
+      <a class="route-item" href="#">
+        <div class="route-img">
+          <img alt="마이페이지 아이콘" th:src="@{/img/mypage.svg}" />
+        </div>
+        <div class="route-name">마이페이지</div>
+      </a>
+      <a class="route-item" href="#">
+        <div class="route-img">
+          <img alt="알림 아이콘" th:src="@{/img/bell.svg}" />
+        </div>
+        <div class="route-name">알림</div>
+      </a>
+    </nav>
+  </footer>
+</div>
+
+<script>
+  document.querySelector('.recomment_toggle').addEventListener('click', function() {
+    const recommentBox = document.querySelector('.comment_recomment_box');
+    recommentBox.classList.toggle('active');
+  });
+</script>
 
 </body>
 
