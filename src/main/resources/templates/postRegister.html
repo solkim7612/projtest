@@ -175,191 +175,149 @@
         margin-left: 150px;
       }
 
-
-
       /* 메인영역 */
-      .community_main{
-        margin-top: 20px;
+      .post_register_main{
         width: 700px;
-        display: flex;
+        /* border: 1px solid white; */
+        margin-bottom: 100px;
       }
 
-      .community_item{
-        /* border: 1px solid pink; */
-        width: 560px;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .community_header{
-        /* border: 1px solid yellow; */
-        margin-bottom: 10px;
-      }
-
-      .community_search{
+      .post_register_main_header{
         background-color: #172036;
-        display: flex;
-        justify-content: space-between;
-        height: 40px;
-        align-items: center;
-      }
-
-      .community_search h2{
-        font-size: 20px;
-        position: relative;
-        left: 250px;
-      }
-
-      .community_list_h2{
-        font-size: 20px;
-        position: relative;
-        left: 20px;
-        margin-bottom: 10px;
-      }
-
-      .community_search img{
-        margin-right: 10px;
-        width: 30px;
-      }
-
-      .community_search img:hover{
-        cursor: pointer;
-      }
-
-
-      .community_search_infoBox{
-        background-color: rgba(255, 255, 255, 0.315);
-        padding: 10px;
-        margin: 10px;
-        margin-top: 20px;
-        border-radius: 4px;
-      }
-
-      .community_search_infoBox p{
-        font-size: 13px;
-        color: white;
-      }
-
-
-      .community_post_list_All{
-        background-color: #172036;
-        margin-top: 10px;
-      }
-
-      .community_post_list_All h1{
-        padding-left: 30px;
-        padding-bottom: 15px;
-      }
-
-      .community_list_one{
-        padding: 20px;
-      }
-
-      .community_list_one_header{
-        display: flex;
-        justify-content: space-between;
-        align-items: start;
-      }
-
-      .community_mem_info{
-        display: flex;
-        margin-bottom: 10px;
-        align-items: start;
-      }
-
-      .community_mem_profile{
-        border-radius: 25px;
-        width: 25px;
-        height: 25px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 14px;
-        background-color: #3B4869;
-        margin-right: 10px;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 40px;
       }
-
-      .community_mem_nickname p{
-        font-size: 16px;
-        color: #98A4B7;
-      }
-
-      .community_created_time{
-        color: #586A85;
-        font-size: 16px;
-      }
-
-      .community_post_body{
-        /* border: 1px solid black; */
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-      }
-
-      .community_post_body:hover{
-        cursor: pointer;
-      }
-
-      .community_post_title p{
-        font-size: 18px;
+      
+      .post_register_main_header h3{
+        font-size: 20px;
         color: #D4D9E1;
       }
 
-      .community_imgbox img{
-        width: 140px;
+      .post_register_main_detail{
+        background-color: #172036;
+      }
+
+      .post_title{
+        /* background-color: #172036; */
+        padding-top: 20px;
+      }
+
+      .post_register_title{
+        background-color: #172036;
+        width: 700px;
+        padding: 20px;
+        box-sizing: border-box;
+        font-size: 18px;
+        color: #D4D9E1;
+        resize: none;
+        outline-style: none;
+        border: none;
         height: 90px;
-        border-radius: 10px;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+
+      .post_register_title::placeholder{
+        color: #D4D9E1;
+        font-size: 18px;
+      }
+
+      .post_register_title::-webkit-scrollbar{
+        display: none;
       }
 
       .cut_line{
-      border: 1px solid #25304A;
-      margin-top: 30px;
+      border: 1px solid #D9D9D9;
+      /* margin-top: 30px; */
       margin-bottom: 20px;
       right: 5%;
+      border-bottom: none;
     }
 
-    .community_more{
-      display: flex;
-      justify-content: center;
-      margin-bottom: 10px;
+    .post_register_detail_box{
+        /* border: 1px solid indigo; */
+        margin-top: 80px;
     }
 
-    .community_more_btn{
-      background-color: #172036;
-      border: none;
-      font-size: 18px;
-      width: 80px;
-      height: 40px;
+    .post_register_detail{
+        width: 700px;
+        background-color: #172036;
+        padding: 20px;
+        box-sizing: border-box;
+        font-size: 16px;
+        color: whitesmoke;
+        resize: none;
+        outline-style: none;
+        border: none;
+        height: 400px;
+        padding-left: 50px;
+        padding-right: 50px;
     }
 
-    .community_more_btn:hover{
-      cursor: pointer;
-      color: #98A4B7;
+    .post_register_detail::placeholder{
+        color: #D4D9E1;
+        font-size: 16px;
     }
 
-    .community_aside{
-      padding-left: 5px;
-      /* border: 1px solid palegreen; */
-      width: 140px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .post_register_tag_box{
+        margin-top: 30px;
+        background-color: #172036;
+        padding: 30px;
     }
 
-    .post_register{
-      /* border: 1px solid bisque; */
-      display: flex;
-      justify-content: center;
-      width: 120px;
+    .post_register_tag_header{
+        margin-bottom: 20px;
+    }
+
+    .post_register_tag{
+        background-color: #ffffff65;
+        color: #ffffff;
+        width: 640px;
+        border: none;
+        font-size: 14px;
+        height: 25px;
+        outline-style: none;
+        padding: 10px;
+        font-weight: 600;
+    }
+
+    .post_register_tag::placeholder{
+        color: #ffffff;
+    }
+    
+    .post_register_tag_footer{
+        font-size: 14px;
+        text-align: end;
+        margin-top: 10px;
+    }
+
+
+    .post_register_img_box{
+        margin-top: 30px;
+        background-color: #172036;
+        width: 700px;
+        height: 200px;
+    }
+
+
+    .post_register_btn_box{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
     }
 
     .post_register_btn{
       background-color: #4263EB;
       border: none;
       margin-bottom: 20px;
-      width: 120px;
-      height: 40px;
+      width: 150px;
+      height: 45px;
       border-radius: 6px;
+      font-size: 16px;
     }
 
     .post_register_btn:hover{
@@ -367,69 +325,16 @@
       cursor: pointer;
     }
 
-    .tag_top{
-      width: 120px;
-    }
-
-    .aside_header{
-      font-size: 16px;
-    }
-    
-    .tag_list{
-      display: flex;
-      align-items: center;
-      margin-top: 6px;
-      /* border: 1px solid red; */
-    }
-
-    .tag_icon{
-      background-color: #172036;
-      width: 30px;
-      height: 30px;
-      border-radius: 25px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 5px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-
-    .tag_name{
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      color: #BDC6D5;
-    }
-
-    .mem_ranking_top{
-      width: 120px;
-      margin-top: 30px;
-    }
-
-    .ranking_list{
-      /* border: 1px solid yellow; */
-      display: flex;
-      align-items: center;
-      margin-top: 6px;
-    }
-
-    .top_mem_nickname{
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-    }
-
-
-      
-
-
     </style>
   </head>
 
   <body>
     <!-- src/main/resources/templates/fragments/header.html -->
-    <div th:fragment="headerFragment" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div
+      th:fragment="headerFragment"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+    >
       <div class="header">
         <div class="header-logo">
           <img alt="시네링크 로고" th:src="@{/img/cine_link_logo.svg}" />
@@ -460,91 +365,49 @@
       </div>
 
 
-      <section class="community_main">
-        <div class="community_item">
-          <div class="community_header">
-            <div class="community_search">
-              <h2>커뮤니티</h2>
-              <img th:src="@{/img/search.svg}" alt="검색">
-            </div>
-            <div class="community_search_infoBox">
-              <p>검색어를 입력하세요</p>
-              <p>(태그를 활용하여 검색하시면 관련 정보를
-                수월하게 찾을 수 있습니다. ex. #에이콘 #아이유)
-              </p>
-            </div>
-          </div>
 
-          <h1 class="community_list_h2">전체 목록</h1>
-
-          <div class="community_post_list_All">
-
-            <div class="community_list_one">
-
-              <div class="community_list_one_header">
-                <div class="community_mem_info">
-                  <div class="community_mem_profile">
-                    <p>김</p>
-                  </div>
-
-                  <div class="community_mem_nickname">
-                    <p>화가난_김태희_149314</p>
-                  </div>
-                </div>
-                
-                <div class="community_created_time">
-                  <p>33분 전</p>
-                </div>
-              </div>
-
-              <div class="community_post_body">
-                <div class="community_post_title">
-                    <p>[모이나2] 로튼 팝콘지수</p>
-                </div>
-                <div class="community_imgbox">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF5muH6piXfKA2yUyMkJwm0mJq6O4lU-1mFA&s" alt="게시글썸네일">
-                </div>
-              </div>
-              <div class="cut_line"></div>
-            </div>
-
-            <div class="community_more">
-              <button class="community_more_btn">더보기</button>
-            </div>
-          </div>
+      <section class="post_register_main">
+        <div class="post_register_main_header">
+            <h3>글 작성하기</h3>
         </div>
 
-        <div class="community_aside">
-          <div class="post_register">
-            <button class="post_register_btn">글 작성하기</button>
-          </div>
-
-          <div class="tag_top">
-            <div class="aside_header"># 태그</div>
-            <div class="tag">
-              <div class="tag_list">
-                <div class="tag_icon"><img th:src="@{/img/tag_icon.svg}" alt="#"></div>
-                <p class="tag_name">한줄엔최대</p>
-              </div>
-
-              
-            </div>
-          </div>
-
-          <div class="mem_ranking_top">
-            <div class="aside_header">유저랭킹 TOP 7</div>
-            <div class="ranking_list">
-              <div class="tag_icon">
-                <img th:src="@{/img/tag_icon.svg}" alt="#">
-              </div>
-              <p class="top_mem_nickname">덤덤한 강동원</p>
+        <div class="post_register_main_detail">
+            <div class="post_title">
+                <textarea class="post_register_title" spellcheck="false"
+                placeholder="제목을 입력해 주세요."></textarea>
             </div>
 
-          </div>
+            <div class="cut_line"></div>
+
+            <div class="post_register_detail_box">
+                <textarea class="post_register_detail" spellcheck="false"
+                placeholder="•  이 공간은 자유로운 게시글 작성이 가능합니다.
+•  작품의 비하인드 스토리를 알고 있다면 공유해주세요!
+•  작품에 대해 궁금한 점이 있다면 질문을 남겨 보세요!
+•  스포와 욕설은 자제해 주세요!
+•  나만의 감상 꿀팁이나 정보를 알려주세요!"></textarea>
+            </div>
+        </div>
+
+        
+        <div class="post_register_tag_box">
+            <p class="post_register_tag_header">
+                아래 # 태그를 붙여 같은 종류의 게시글을 한눈에 확인하세요!
+            </p>
+            <input type="text" class="post_register_tag" name="" id="" maxlength="30"
+            placeholder="예) #잡담, #추천, #정보, #영화, #드라마, #예능, #애니메이션, #모이나2">
+            <p class="post_register_tag_footer">(태그는 30자 이내로 작성해주세요!)</p>
+        </div>
+
+        <div class="post_register_img_box">
+
+        </div>
+
+        <div class="post_register_btn_box">
+            <button class="post_register_btn">작성 완료</button>
         </div>
       </section>
 
-      
 
       <footer>
         <nav class="footer-util">
