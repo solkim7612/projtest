@@ -241,14 +241,9 @@
       }
 
 
-      .community_post_list_All{
+      .community_review_list_All{
         background-color: #172036;
         margin-top: 10px;
-      }
-
-      .community_post_list_All h1{
-        padding-left: 30px;
-        padding-bottom: 15px;
       }
 
       .community_list_one{
@@ -259,6 +254,7 @@
         display: flex;
         justify-content: space-between;
         align-items: start;
+        height: 45px;
       }
 
       .community_mem_info{
@@ -285,35 +281,58 @@
       }
 
       .community_created_time{
-        color: #586A85;
-        font-size: 16px;
+        display: flex;
+        align-items: center;
       }
 
-      .community_post_body{
+      .community_created_time img{
+        width: 20px;
+        margin-left: 20px;
+      }
+
+      .community_created_time p{
+        font-size: 16px;
+        margin-left: 5px;
+        padding-top: 5px;
+      }
+
+      .community_review_body{
         /* border: 1px solid black; */
         display: flex;
         justify-content: space-between;
         margin-top: 10px;
       }
 
-      .community_post_title p{
+      .community_review_title p{
         font-size: 18px;
         color: #D4D9E1;
       }
 
-      .community_post_title:hover{
+      .community_review_title:hover{
         cursor: pointer;
       }
 
-      .community_imgbox img{
-        width: 140px;
-        height: 90px;
-        border-radius: 10px;
+      .community_movie_title_box{
+        display: flex;
+        font-size: 16px;
+        justify-content: center;
+        align-items: center;
       }
 
-      .community_imgbox:hover{
+      .community_movie_title_box:hover{
         cursor: pointer;
       }
+
+      .community_movie_title_box a{
+        color: #98A4B7;
+      }
+
+      .community_movie_title_box p{
+        margin-left: 20px;
+        font-size: 14px;
+        color: #586A85;
+      }
+
 
       .cut_line{
       border: 1px solid #25304A;
@@ -350,14 +369,14 @@
       align-items: center;
     }
 
-    .post_register{
+    .review_register{
       /* border: 1px solid bisque; */
       display: flex;
       justify-content: center;
       width: 120px;
     }
 
-    .post_register_btn{
+    .review_register_btn{
       background-color: #4263EB;
       border: none;
       margin-bottom: 20px;
@@ -366,7 +385,7 @@
       border-radius: 6px;
     }
 
-    .post_register_btn:hover{
+    .review_register_btn:hover{
       background-color: #4264eb9a;
       cursor: pointer;
     }
@@ -479,9 +498,9 @@
             </div>
           </div>
 
-          <h1 class="community_list_h2">게시글 전체 목록</h1>
+          <h1 class="community_list_h2">리뷰 전체 목록</h1>
 
-          <div class="community_post_list_All">
+          <div class="community_review_list_All">
 
             <div class="community_list_one">
 
@@ -490,23 +509,26 @@
                   <div class="community_mem_profile">
                     <p>김</p>
                   </div>
-
                   <div class="community_mem_nickname">
                     <p>화가난_김태희_149314</p>
                   </div>
                 </div>
                 
                 <div class="community_created_time">
-                  <p>33분 전</p>
+                  <img th:src="@{/img/star.svg}" alt="평점">
+                  <p>0.0</p>
+                  <img th:src="@{/img/heart.svg}" alt="좋아요">
+                  <p>0</p>
                 </div>
               </div>
 
-              <div class="community_post_body">
-                <div class="community_post_title">
+              <div class="community_review_body">
+                <div class="community_review_title">
                     <p>[모이나2] 로튼 팝콘지수</p>
                 </div>
-                <div class="community_imgbox">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF5muH6piXfKA2yUyMkJwm0mJq6O4lU-1mFA&s" alt="게시글썸네일">
+                <div class="community_movie_title_box">
+                  <a href="#">영화이름</a>
+                  <p class="community_review_reg_at">1시간 전</p>
                 </div>
               </div>
               <div class="cut_line"></div>
@@ -519,8 +541,8 @@
         </div>
 
         <div class="community_aside">
-          <div class="post_register">
-            <button class="post_register_btn">글 작성하기</button>
+          <div class="review_register">
+            <button class="review_register_btn">글 작성하기</button>
           </div>
 
           <div class="tag_top">
